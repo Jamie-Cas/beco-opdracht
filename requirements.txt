@@ -1,6 +1,7 @@
-streamlit
+fastapi[all]
 openai
-langchain
-langchain-community
 python-dotenv
+pydantic==1.*
+langchain
 faiss-cpu
+tiktoken
