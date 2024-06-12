@@ -13,7 +13,7 @@ load_dotenv()
 loader = CSVLoader(file_path="final_startup_ideas_dataset.csv")
 documents = loader.load()
 
-embeddings = OpenAIEmbeddings(openai_api_key=st.secrets["API_KEY"])
+embeddings = OpenAIEmbeddings()
 db = FAISS.from_documents(documents, embeddings)
 
 # 2. Function for similarity search
