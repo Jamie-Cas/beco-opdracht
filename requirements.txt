@@ -3,4 +3,4 @@ openai
 langchain
 langchain-community
 python-dotenv
-faiss-gpu
+faiss-cpu
