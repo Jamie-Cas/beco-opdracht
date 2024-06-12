@@ -13,7 +13,7 @@ load_dotenv()
 loader = CSVLoader(file_path="final_startup_ideas_dataset.csv")
 documents = loader.load()
 
-embeddings = OpenAIEmbeddings(openai_api_key='sk-proj-cNjJZh2rgKNPVspwDSVZT3BlbkFJV5IDTSTtNdWHWni31bkI')
+embeddings = OpenAIEmbeddings(openai_api_key=st.secrets["API_KEY"])
 db = FAISS.from_documents(documents, embeddings)
 
 # 2. Function for similarity search
@@ -30,7 +30,7 @@ def retrieve_info(query):
 
 
 # 3. Setup LLMChain & prompts
-llm = ChatOpenAI(temperature=0, model="gpt-4o", api_key='sk-proj-cNjJZh2rgKNPVspwDSVZT3BlbkFJV5IDTSTtNdWHWni31bkI')
+llm = ChatOpenAI(temperature=0, model="gpt-4o", api_key=st.secrets["API_KEY"])
 
 template = """
 You are a world class business idea innovator.
