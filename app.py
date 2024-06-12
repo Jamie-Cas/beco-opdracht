@@ -9,11 +9,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+api_key = st.secrets["API_KEY"]
+
 # 1. Vectorise the sales response csv data
 loader = CSVLoader(file_path="final_startup_ideas_dataset.csv")
 documents = loader.load()
 
-embeddings = OpenAIEmbeddings()
+embeddings = OpenAIEmbeddings(openai_api_key=api_key)
 db = FAISS.from_documents(documents, embeddings)
 
 # 2. Function for similarity search
@@ -30,7 +32,7 @@ def retrieve_info(query):
 
 
 # 3. Setup LLMChain & prompts
-llm = ChatOpenAI(temperature=0, model="gpt-4o", api_key=st.secrets["API_KEY"])
+llm = ChatOpenAI(temperature=0, model="gpt-4o", api_key=api_key)
 
 template = """
 You are a world class business idea innovator.
