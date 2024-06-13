@@ -55,7 +55,7 @@ Here is a list of business_ideas of how you can convert a user_input into an ide
 {business_ideas}
 
 Based on the user's input and the examples provided, please generate a unique and innovative business idea. 
-Limit your response to 75 words of a clear, concise and most importantly, a useful idea.
+Limit your response to 75 words of a clear, concise and most importantly, a useful idea. Answer in the same language as the user_input.
 """
 
 
